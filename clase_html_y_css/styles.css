@@ -13,6 +13,33 @@ body{
     font-size: 16px;
 }
 
+/* se aplica desde 0px */
+body{
+    background-color: bisque;
+}
+
+/* recomendado:
+480px para moviles
+760px para tablets*/
+
+@media(min-width: 480px){
+    body{
+        background-color: blue;
+    }
+}
+
+@media(min-width: 760px){
+    body{
+        background-color: cornflowerblue;
+    }
+}
+
+.hero{
+    background-image: url(../IMG/hero.jpg); /* ../ es para regresar un nivel de drectorio ya que la carperta IMG esta fuera de la carpeta CSS */
+    background-repeat: no-repeat; /* sirve para evitar la repeticion de la image cuando es pequeña */
+    background-size: cover; /* sirve para cubrir la imagen con todo el tamaño posible */
+}
+
 .titulo{
 text-align: center;
 font-size: 3.8rem;
@@ -29,6 +56,15 @@ font-size: 3.8rem;
     justify-content: space-between;
     font-weight: bold;
     font-size: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 760px){
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
 /* al poner el cursor en el hipervinculo*/

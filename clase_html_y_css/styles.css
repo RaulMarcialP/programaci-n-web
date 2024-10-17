@@ -4,6 +4,7 @@
 --primario: #ffc107;
 --secundario: #0097a9;
 --gris: #757575;
+--grisClaro: #b6b6b6;
     }
 /*truco para uniformidad de texto entre navegadores*/
 html{
@@ -11,33 +12,33 @@ html{
 }
 body{
     font-size: 16px;
-}
-
-/* se aplica desde 0px */
-body{
-    background-color: bisque;
-}
-
-/* recomendado:
-480px para moviles
-760px para tablets*/
-
-@media(min-width: 480px){
-    body{
-        background-color: blue;
-    }
-}
-
-@media(min-width: 760px){
-    body{
-        background-color: cornflowerblue;
-    }
+    font-family: 'krub', sans-serif;
+    background: linear-gradient(190deg, var(--blanco), var(--grisClaro)); /* Gradiente de arriba a abajo */
 }
 
 .hero{
     background-image: url(../IMG/hero.jpg); /* ../ es para regresar un nivel de drectorio ya que la carperta IMG esta fuera de la carpeta CSS */
     background-repeat: no-repeat; /* sirve para evitar la repeticion de la image cuando es pequeña */
     background-size: cover; /* sirve para cubrir la imagen con todo el tamaño posible */
+    height: 450px; /* alto del elemento hero */
+    position: relative; /* para manipular la posicion de algo, el padre siempre debe ser relativo y los hijos son absolutos */
+}
+
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0 , 0, 0,.7);
+    width: 100%;
+    height: 100%;
+    /* alinear texto vertical y horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero p,
+.contenido-hero h2{
+    color: var(--blanco);
 }
 
 .titulo{
@@ -49,7 +50,6 @@ font-size: 3.8rem;
 }
 
 .navegacion-principal{
-    background-color: var(--secundario);
     /* margin es por fuera y padding es por dentro*/
     display: flex; /* esta diseñado para alinear elementos en los diseños*/
     /* justify-content para FILAS / align-items es para columnas (flex-direction) */
@@ -80,7 +80,7 @@ font-size: 3.8rem;
 }
 
 .contenedor{
-    width: 120rem; /* 1200px por que 1 rem es igual a 10px */
+    max-width: 120rem; /* 1200px por que 1 rem es igual a 10px */
     /*  margin-top: 0;
         margin-bottom: 0;
         margin-left: auto;
@@ -93,4 +93,63 @@ font-size: 3.8rem;
     background-color: var(--secundario);
 }
 
+/* TIPOGRAFÍA */
+h1{
+    font-size: 3.8rem;
+}
 
+h2{
+    font-size: 2.8rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1,h2,h3{
+    text-align: center;
+}
+
+.title span{
+    font-size: 2rem;
+
+}
+.contacto
+
+.btn-contactar {
+    background-color: #0097a9; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 90%; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambiar cursor al pasar el ratón */
+    font-weight: bold; /* Texto en negritas */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+.btn-contactar:hover {
+    background-color: #007b8a; /* Color al pasar el ratón */
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    text-decoration: none; /*para quitar la linea*/
+    text-transform: uppercase; /*convertir el texto en mayuscula */
+    font-weight: bold; /*negritas*/
+    border-radius: 0.5rem;
+    text-align: center;
+    margin-top: 3rem;
+    border-radius: .5rem;
+    width: auto;
+    text-align: center;
+}
+
+
+@media (max-width:768px) {
+    .boton{
+        width: 80%;
+    }
+}
